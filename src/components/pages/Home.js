@@ -3,11 +3,13 @@ import FormInput from '../forms/FormInput';
 import FormSource from '../forms/FormSource';
 import Result from '../results/Result';
 
+import { FORM_FIELDS as FIELDS } from '../../data/forms';
 import { COL } from '../../constants/home';
 
 const Home = () => {
-  let [source, setSource] = useState('');
-  let [form, setForm] = useState('');
+  let [source, setSource] = useState(0);
+  let [form, setForm] = useState(FIELDS[source]);
+  let [result, setResult] = useState('');
 
   useEffect(() => {
     console.log(source);
@@ -15,6 +17,14 @@ const Home = () => {
 
   const handleSourceChange = (newSource) => {
     setSource(newSource)
+  };
+
+  const handleFormChange = (newForm) => {
+    setForm(newForm);
+  };
+
+  const handleResultChange = (newResult) => {
+    setResult(newResult);
   };
 
   return (
@@ -27,10 +37,13 @@ const Home = () => {
         />
         <FormInput
           column={COL}
-          handleSourceChange={handleSourceChange}
+          form={form}
+          handleFormChange={handleFormChange}
         />
         <Result
           column={COL}
+          result={result}
+          handleResultChange={handleResultChange}
         />
       </div>
     </div>

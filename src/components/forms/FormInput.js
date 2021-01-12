@@ -3,7 +3,7 @@ import React from 'react';
 const FormInput = (props) => {
   const {
     column,
-    handleSourceChange,
+    handleFormChange,
   } = props;
 
   return (
