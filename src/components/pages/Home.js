@@ -1,9 +1,23 @@
 import React from 'react';
 
-export default function Home() {
+const COL = 'col-md';
+
+const Home = () => {
   return (
     <div>
-      Home
+      <div className="row">
+        <div className={COL}>
+          Sources
+        </div>
+        <div className={COL}>
+          Input
+        </div>
+        <div className={COL}>
+          Result
+        </div>
+      </div>
     </div>
   )
-}
+};
+
+export default Home;

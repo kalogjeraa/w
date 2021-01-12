@@ -9,7 +9,7 @@ export default function Routes() {
     <>
       <Router>
         <Switch>
-          <Route to="/" component={Home} />
+          <Route to="/" component={Home} exact />
           <Route to="/about" component={About} />
         </Switch>
       </Router>  
