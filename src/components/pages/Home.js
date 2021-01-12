@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import FormInput from '../forms/FormInput';
-import FormSource from '../forms/FormSource';
+import Fields from '../forms/Fields';
+import Source from '../forms/Source';
 import Result from '../results/Result';
 
 import { FORM_FIELDS as FIELDS } from '../../data/forms';
@@ -8,43 +8,46 @@ import { COL } from '../../constants/home';
 
 const Home = () => {
   let [source, setSource] = useState(0);
-  let [form, setForm] = useState(FIELDS[source]);
-  let [result, setResult] = useState('');
+  let [fields, setFields] = useState(FIELDS[0]);
 
   useEffect(() => {
     console.log(source);
+    console.log(fields);
   });
 
+  // Sets the source type (e.g., book, court, etc...).
   const handleSourceChange = (newSource) => {
-    setSource(newSource)
+    setSource(newSource);
+    setFields(FIELDS[source]);
   };
 
-  const handleFormChange = (newForm) => {
-    setForm(newForm);
-  };
+  // Sets the source type (e.g., book, court, etc...).
+  const handleFieldsChange = (newFields) => {
 
-  const handleResultChange = (newResult) => {
-    setResult(newResult);
   };
 
   return (
     <div>
       <div className="row">
-        <FormSource
+
+        <Source
           column={COL}
           source={source}
           handleSourceChange={handleSourceChange}
         />
-        <FormInput
+
+        <Fields
           column={COL}
-          form={form}
-          handleFormChange={handleFormChange}
+          fields={fields}
+          source={source}
+          handleFieldsChange={handleFieldsChange}
         />
+
         <Result
           column={COL}
-          result={result}
-          handleResultChange={handleResultChange}
+          result={''}
         />
+
       </div>
     </div>
   )
