@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Fields from '../forms/Fields';
 import Source from '../forms/Source';
 import Result from '../results/Result';
@@ -8,6 +8,12 @@ import { COL } from '../../constants/home';
 
 const Home = () => {
   let [source, setSource] = useState(0);
+  let [fields, setFields] = useState(FIELDS[0]);
+  // let results = useState('');
+
+  useEffect(() => {
+    setFields(FIELDS[source])
+  }, [source]);
 
   // Sets the source type (e.g., book, court, etc...).
   const handleSourceChange = (newSource) => {
@@ -26,6 +32,7 @@ const Home = () => {
 
         <Fields
           column={COL}
+          fields={fields}
           source={source}
         />
 
