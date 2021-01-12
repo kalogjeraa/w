@@ -1,20 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import FormInput from '../forms/FormInput';
+import FormSource from '../forms/FormSource';
+import Result from '../results/Result';
 
-const COL = 'col-md';
+import { COL } from '../../constants/home';
 
 const Home = () => {
+  let [source, setSource] = useState([]);
+
+  const handleSourceChange = (newSource) => {
+    setSource(newSource)
+  };
+
   return (
     <div>
       <div className="row">
-        <div className={COL}>
-          Sources
-        </div>
-        <div className={COL}>
-          Input
-        </div>
-        <div className={COL}>
-          Result
-        </div>
+        <FormSource
+          column={COL}
+          source={source}
+          handleSourceChange={handleSourceChange}
+        />
+        <FormInput
+          column={COL}
+          handleSourceChange={handleSourceChange}
+        />
+        <Result
+          column={COL}
+        />
       </div>
     </div>
   )
