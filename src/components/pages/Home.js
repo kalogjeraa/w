@@ -16,7 +16,7 @@ const Home = () => {
   }, [source]);
 
   // Sets the source type (e.g., book, court, etc...).
-  const handleSourceChange = (newSource) => {
+  const handleSourceChange = newSource => {
     setSource(newSource);
   };
 
@@ -43,7 +43,7 @@ const Home = () => {
 
       </div>
     </div>
-  )
+  );
 };
 
 export default Home;
