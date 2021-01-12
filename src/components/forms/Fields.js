@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FORM_FIELDS as FIELDS } from '../../data/forms';
 
 const Fields = (props) => {
+  let [fields, setFields] = useState(FIELDS[0]);
   const {
     column,
-    fields,
+    // fields,
     source,
   } = props;
 
   useEffect(() => {
-    console.log('mounted');
-  }, []);
+    setFields(FIELDS[source])
+  }, [source]);
 
   return (
     <div className={column}>
