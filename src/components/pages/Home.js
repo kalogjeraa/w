@@ -9,8 +9,9 @@ import { COL } from '../../constants/home';
 const Home = () => {
   let [source, setSource] = useState(0);
   let [fields, setFields] = useState(FIELDS[0]);
-  // let results = useState('');
+  let [results, setResults] = useState('');
 
+  // Sets the fields.
   useEffect(() => {
     setFields(FIELDS[source])
   }, [source]);
@@ -18,6 +19,13 @@ const Home = () => {
   // Sets the source type (e.g., book, court, etc...).
   const handleSourceChange = newSource => {
     setSource(newSource);
+  };
+
+  // Sets the results.
+  const handleTyping = input => {
+    // Perform some logic to append to a result string.
+
+    setResults(input);
   };
 
   return (
@@ -34,6 +42,7 @@ const Home = () => {
           column={COL}
           fields={fields}
           source={source}
+          handleTyping={handleTyping}
         />
 
         <Result

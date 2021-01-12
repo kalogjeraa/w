@@ -12,8 +12,12 @@ const Fields = props => {
         Object.keys(fields).map(field => {
           return (
             <div class="form-group">
-              {/*<small id="emailHelp" class="form-text text-muted">{field}</small>*/}
-              <input type="text" class="form-control" aria-describedby="emailHelp" placeholder={`${field}`} />
+              <input
+                type="text"
+                class="form-control"
+                aria-describedby="emailHelp"
+                placeholder={`${field}`}
+              />
             </div>
           );
         })
