@@ -1,0 +1,36 @@
+{
+  "book": {
+    "last": "",
+    "first": "",
+    "authorLink": "",
+    "date": "",
+    "title": "",
+    "url": "",
+    "location": "",
+    "publisher":"",
+    "page": "",
+    "isbn":""
+  },
+  "court": {
+    "litigants": "",
+    "vol": "",
+    "reporter": "",
+    "opinion": "",
+    "pinpoint": "",
+    "court": "",
+    "date": "",
+    "url": "",
+    "accessDate": "",
+    "quote": "",
+    "postscript": ""
+  },
+  "encyclopedia" : {
+    "title": "",
+    "encyclopedia": "",
+    "date": "",
+    "year": "",
+    "publisher": "",
+    "location": "",
+    "id": ""
+  }
+}

@@ -8,6 +8,7 @@ const Result = (props) => {
 
   return (
     <div className={column}>
+      RESULT
       
     </div>
   )

@@ -9,7 +9,7 @@ import { COL } from '../../constants/home';
 const Home = () => {
   let [source, setSource] = useState(0);
   let [fields, setFields] = useState(FIELDS[0]);
-  let [results, setResults] = useState('');
+  let [result, setResult] = useState('');
 
   // Sets the fields.
   useEffect(() => {
@@ -24,8 +24,8 @@ const Home = () => {
   // Sets the results.
   const handleTyping = input => {
     // Perform some logic to append to a result string.
-
-    setResults(input);
+    console.log(input);
+    setResult(input);
   };
 
   return (
