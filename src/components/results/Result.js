@@ -4,12 +4,13 @@ const Result = (props) => {
 
   const {
     column,
-    results,
+    // results,
+    fields,
   } = props;
 
   useEffect(() => {
-    console.log(results);
-  }, [results]);
+    console.log('Result.js fields:', fields);
+  }, [fields]);
 
   return (
     <div className={column}>
