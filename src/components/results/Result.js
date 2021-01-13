@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Result = (props) => {
 
@@ -6,6 +6,10 @@ const Result = (props) => {
     column,
     results,
   } = props;
+
+  useEffect(() => {
+    console.log(results);
+  }, [results]);
 
   return (
     <div className={column}>
