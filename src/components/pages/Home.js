@@ -2,39 +2,38 @@ import React, { useEffect, useState } from 'react';
 import Fields from '../forms/Fields';
 import Source from '../forms/Source';
 import Result from '../results/Result';
+
 import { COL } from '../../constants/home';
-import { insert } from '../../utils/utilities';
 
 const FIELDS_JSON = require('../../data/forms.json');
-
-const FIELDS_ENTRIES = Object.entries(FIELDS_JSON);
-const FIELDS_KEYS = Object.keys(FIELDS_JSON);
-const FIELDS_VALUES = Object.values(FIELDS_JSON);
+const ARR_JSON_OBJ_FIELDS = Object.values(FIELDS_JSON); // [{"last":"", "first":""}, {"title":"", "id":""}]
 
 const Home = () => {
-  let [sourceIndex, setSourceIndex] = useState(0);
-  let [fields, setFields] = useState(FIELDS_VALUES[sourceIndex]);
-  let [results, setResults] = useState(FIELDS_VALUES[sourceIndex]);
+  let [sourceIndex, setSourceIndex] = useState(0); // [0(book), 1(court), 2(encyclopaedia)]
+  // there is no need for an array of types
+  let [fields, setFields] = useState(ARR_JSON_OBJ_FIELDS[sourceIndex]);
+
 
   // Sets the fields.
   useEffect(() => {
-    console.log(FIELDS_KEYS[sourceIndex]);
-    console.log(results);
-    setFields(FIELDS_VALUES[sourceIndex]);
-  }, [sourceIndex, results]);
+    setFields(ARR_JSON_OBJ_FIELDS[sourceIndex]);
+  }, [sourceIndex]);
+
+  const reset = () => {
+    setFields(ARR_JSON_OBJ_FIELDS[sourceIndex])
+  };
 
   // Sets the source type (e.g., book, court, etc...).
   const handleSourceChange = newSource => {
+    reset();
     setSourceIndex(newSource);
-    setFields(FIELDS_VALUES[sourceIndex]);
   };
 
   // Sets the results.
   const handleTyping = (index, input) => {
     // Perform some logic to append to a result string.
 
-    const entries = results; // current results
-    const tupleArray = Object.entries(entries); // array of [["litigation", ""], ["title", ""]]
+    const tupleArray = Object.entries(fields); // array of [["litigation", ""], ["title", ""]]
     const tuple = tupleArray[index]; // ["litigation", ""]
     tuple.splice(1, 1, input); // replace second index with new input
     tupleArray.splice(index, 1, tuple); // replace old tuple in tupleArray with new tuple
@@ -47,7 +46,8 @@ const Home = () => {
       )
     );
 
-    setResults(obj);
+    console.log('obj to INSERT: ', obj);
+    setFields(obj); //////////
   };
 
   return (
@@ -58,6 +58,7 @@ const Home = () => {
           column={COL}
           sourceIndex={sourceIndex}
           handleSourceChange={handleSourceChange}
+          reset={reset}
         />
 
         <Fields
@@ -69,7 +70,7 @@ const Home = () => {
 
         <Result
           column={COL}
-          results={results}
+          fields={fields}
         />
 
       </div>

@@ -4,6 +4,7 @@ const Source = (props) => {
   const {
     column,
     handleSourceChange,
+    reset,
   } = props;
 
   return (
@@ -11,7 +12,10 @@ const Source = (props) => {
 
       <div className="form-check">
         <input className="form-check-input" type="radio" name="source" id="book" value="book" defaultChecked
-          onClick={() => handleSourceChange(0)}
+          onClick={() => {
+            reset();
+            handleSourceChange(0);
+          }}
         />
         <label className="form-check-label" htmlFor="book">
           Book
