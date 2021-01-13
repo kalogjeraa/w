@@ -18,15 +18,14 @@ const Home = () => {
 
   // Sets the fields.
   useEffect(() => {
-    console.log(FIELDS_KEYS[sourceIndex]);
-    console.log(results);
+    console.log(sourceIndex)
+    console.log(results)
     setFields(FIELDS_VALUES[sourceIndex]);
   }, [sourceIndex, results]);
 
   // Sets the source type (e.g., book, court, etc...).
   const handleSourceChange = newSource => {
     setSourceIndex(newSource);
-    setFields(FIELDS_VALUES[sourceIndex]);
   };
 
   // Sets the results.
@@ -46,6 +45,8 @@ const Home = () => {
         )
       )
     );
+
+    console.log(obj);
 
     setResults(obj);
   };
