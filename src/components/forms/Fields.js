@@ -1,14 +1,11 @@
 import React from 'react';
 
 const Fields = props => {
-
   const {
     column,
     fields,
     handleTyping,
   } = props;
-
-
 
   return (
     <div className={column}>
@@ -22,7 +19,6 @@ const Fields = props => {
               <input
                 type="text"
                 className="form-control"
-                aria-describedby="emailHelp"
                 placeholder={`${field}`}
                 onChange={event => handleTyping(index, event.target.value)}
               />

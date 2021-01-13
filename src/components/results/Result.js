@@ -4,7 +4,6 @@ const Result = (props) => {
 
   const {
     column,
-    // results,
     fields,
   } = props;
 
@@ -12,27 +11,34 @@ const Result = (props) => {
     console.log('Result.js fields:', fields);
   }, [fields]);
 
+  console.log(fields);
+
   return (
     <div className={column}>
       {
-        /*results.map((result, index) => {
-          return (
-            <div key={index}>
-              {result}
-            </div>
-          );
-        })*/
-        /*Object.entries(results).map((result, index) => {
-
+        Object.keys(fields).map((key) => {
           return (
             <p>
-              {result}
+              {`${key}: ${fields[key]}`}
             </p>
           );
-        })*/
+        })
       }
     </div>
   )
 };
 
 export default Result;
+
+/*
+Wikipedia's format:
+{{cite encyclopedia
+  | title =
+  | encyclopedia =
+  | date =
+  | year =
+  | publisher =
+  | location =
+  | id =
+ }}
+ */

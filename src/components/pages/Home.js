@@ -2,13 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Fields from '../forms/Fields';
 import Source from '../forms/Source';
 import Result from '../results/Result';
+
 import { COL } from '../../constants/home';
-import { insert } from '../../utils/utilities';
 
 const FIELDS_JSON = require('../../data/forms.json');
-
-const FIELDS_ENTRIES = Object.entries(FIELDS_JSON);
-const ARR_JSON_OBJ_TYPES = Object.keys(FIELDS_JSON);
 const ARR_JSON_OBJ_FIELDS = Object.values(FIELDS_JSON); // [{"last":"", "first":""}, {"title":"", "id":""}]
 
 const Home = () => {
@@ -28,6 +25,7 @@ const Home = () => {
 
   // Sets the source type (e.g., book, court, etc...).
   const handleSourceChange = newSource => {
+    reset();
     setSourceIndex(newSource);
   };
 
@@ -60,6 +58,7 @@ const Home = () => {
           column={COL}
           sourceIndex={sourceIndex}
           handleSourceChange={handleSourceChange}
+          reset={reset}
         />
 
         <Fields
@@ -71,7 +70,6 @@ const Home = () => {
 
         <Result
           column={COL}
-          // results={results} ////////////////////////////////////////////////////
           fields={fields}
         />
 
