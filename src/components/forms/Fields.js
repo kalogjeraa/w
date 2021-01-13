@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Fields = props => {
 
@@ -8,15 +8,12 @@ const Fields = props => {
     handleTyping,
   } = props;
 
-  useEffect(() => {
-    console.log(fields);
-  }, [fields]);
+
 
   return (
     <div className={column}>
       {
         Object.keys(fields).map((field, index) => {
-          console.log(field.value);
           return (
             <div
               className="form-group"
@@ -27,7 +24,7 @@ const Fields = props => {
                 className="form-control"
                 aria-describedby="emailHelp"
                 placeholder={`${field}`}
-                onChange={event => handleTyping(event.target.value)}
+                onChange={event => handleTyping(index, event.target.value)}
               />
             </div>
           );

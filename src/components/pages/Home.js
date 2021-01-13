@@ -2,30 +2,52 @@ import React, { useEffect, useState } from 'react';
 import Fields from '../forms/Fields';
 import Source from '../forms/Source';
 import Result from '../results/Result';
-
-import { FORM_FIELDS as FIELDS } from '../../data/forms';
 import { COL } from '../../constants/home';
+import { insert } from '../../utils/utilities';
+
+const FIELDS_JSON = require('../../data/forms.json');
+
+const FIELDS_ENTRIES = Object.entries(FIELDS_JSON);
+const FIELDS_KEYS = Object.keys(FIELDS_JSON);
+const FIELDS_VALUES = Object.values(FIELDS_JSON);
 
 const Home = () => {
-  let [source, setSource] = useState(0);
-  let [fields, setFields] = useState(FIELDS[0]);
-  let [result, setResult] = useState('');
+  let [sourceIndex, setSourceIndex] = useState(0);
+  let [fields, setFields] = useState(FIELDS_VALUES[sourceIndex]);
+  let [results, setResults] = useState(FIELDS_VALUES[sourceIndex]);
 
   // Sets the fields.
   useEffect(() => {
-    setFields(FIELDS[source])
-  }, [source]);
+    console.log(FIELDS_KEYS[sourceIndex]);
+    console.log(results);
+    setFields(FIELDS_VALUES[sourceIndex]);
+  }, [sourceIndex, results]);
 
   // Sets the source type (e.g., book, court, etc...).
   const handleSourceChange = newSource => {
-    setSource(newSource);
+    setSourceIndex(newSource);
+    setFields(FIELDS_VALUES[sourceIndex]);
   };
 
   // Sets the results.
-  const handleTyping = input => {
+  const handleTyping = (index, input) => {
     // Perform some logic to append to a result string.
-    console.log(input);
-    setResult(input);
+
+    const entries = results; // current results
+    const tupleArray = Object.entries(entries); // array of [["litigation", ""], ["title", ""]]
+    const tuple = tupleArray[index]; // ["litigation", ""]
+    tuple.splice(1, 1, input); // replace second index with new input
+    tupleArray.splice(index, 1, tuple); // replace old tuple in tupleArray with new tuple
+    // converts everything back into like entries above
+    const obj = Object.assign(
+      ...tupleArray.map(
+        ([key, value]) => (
+          {[key]: value}
+        )
+      )
+    );
+
+    setResults(obj);
   };
 
   return (
@@ -34,20 +56,20 @@ const Home = () => {
 
         <Source
           column={COL}
-          source={source}
+          sourceIndex={sourceIndex}
           handleSourceChange={handleSourceChange}
         />
 
         <Fields
           column={COL}
           fields={fields}
-          source={source}
+          sourceIndex={sourceIndex}
           handleTyping={handleTyping}
         />
 
         <Result
           column={COL}
-          result={''}
+          results={results}
         />
 
       </div>
