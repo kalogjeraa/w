@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+
 import Fields from '../forms/Fields';
-import Source from '../forms/Source';
+import Footer from '../common/Footer';
 import Result from '../results/Result';
+import Source from '../forms/Source';
 
 import { COL } from '../../constants/home';
 
@@ -63,6 +65,7 @@ const Home = () => {
           fields={fields}
         />
       </div>
+      <Footer />
     </div>
   );
 };
