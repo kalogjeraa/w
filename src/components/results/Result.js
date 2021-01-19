@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
+import { formatStringBy } from '../../utils/utilities';
 import '../../styles/result.css';
 
 const Result = (props) => {
   const [citation, setCitation] = useState('');
+  const [copySuccess, setCopySuccess] = useState('');
+  const textAreaRef = useRef(null);
 
   const {
     column,
@@ -12,30 +15,28 @@ const Result = (props) => {
   } = props;
 
   useEffect(() => {
-    const keys = Object.keys(fields)
-    const values = Object.values(fields)
-    let m = `{{ cite ${type} \n`;
-    for (let i = 0; i < keys.length; i++) {
-      m += `  | ${keys[i]} = ${values[i]} \n`;
-    }
-    m += `}}`
-    setCitation(m)
-  }, [citation, fields, type]);
+    const formatted = formatStringBy(type, fields);
+    setCitation(formatted);
+  }, [fields, type]);
+
+  const copyToClipboard = (value) => {
+    navigator.clipboard.writeText(value)
+    setCopySuccess('Copied!');
+  };
 
   return (
     <div className={column}>
       <textarea
+        readOnly
+        ref={textAreaRef}
         value={citation}
-      />
-      {
-        /*Object.keys(fields).map(field => {
-          return (
-            <div className="resultP">
-              <span className="resultLine">{`| ${field} = ${fields[field]}`}</span>
-            </div>
-          );
-        })
-      */}
+      />        
+      <button
+        onClick={()=> copyToClipboard(citation)}
+      >
+        Copy
+      </button>
+      {copySuccess}
     </div>
   )
 };
