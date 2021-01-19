@@ -6,6 +6,7 @@ import Result from '../results/Result';
 import Source from '../forms/Source';
 
 import { COL } from '../../constants/home';
+import '../../styles/home.css';
 
 const FULL_JSON = require('../../data/forms.json');
 const KEYS_JSON = Object.keys(FULL_JSON);
@@ -46,7 +47,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home">
       <div className="row">
         <Source
           column={COL}

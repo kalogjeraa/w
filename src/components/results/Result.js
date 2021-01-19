@@ -26,17 +26,22 @@ const Result = (props) => {
 
   return (
     <div className={column}>
-      <textarea
-        readOnly
-        ref={textAreaRef}
-        value={citation}
-      />        
+      <div className="paper">
+        <div className="paper-content">
+          <textarea
+            autofocus
+            readOnly
+            ref={textAreaRef}
+            value={citation}
+          />        
+          {copySuccess}
+        </div>
+      </div>
       <button
         onClick={()=> copyToClipboard(citation)}
       >
         Copy
       </button>
-      {copySuccess}
     </div>
   )
 };
