@@ -2,7 +2,7 @@
   "book": {
     "last": "",
     "first": "",
-    "authorLink": "",
+    "author-link": "",
     "date": "",
     "title": "",
     "url": "",
@@ -10,6 +10,22 @@
     "publisher":"",
     "page": "",
     "isbn":""
+  },
+  "conference": {
+    "url": "", 
+    "title": "", 
+    "last1": "", 
+    "first1": "", 
+    "author-link1": "", 
+    "last2": "", 
+    "first2": "", 
+    "author-link2": "", 
+    "date": "", 
+    "publisher": "", 
+    "book-title": "", 
+    "pages": "", 
+    "location": "", 
+    "id": ""
   },
   "court": {
     "litigants": "",
@@ -24,7 +40,7 @@
     "quote": "",
     "postscript": ""
   },
-  "encyclopedia" : {
+  "encyclopedia": {
     "title": "",
     "encyclopedia": "",
     "date": "",
@@ -32,5 +48,85 @@
     "publisher": "",
     "location": "",
     "id": ""
+  },
+  "interview": {
+    "last": "",
+    "first": "",
+    "subject-link": "",
+    "interviewer": "",
+    "title": "",
+    "url": "",
+    "publisher": "",
+    "location": "",
+    "date": "",
+    "work": "",
+    "access-date": ""
+  },
+  "journal": {
+    "last1": "",
+    "first1": "",
+    "last2": "",
+    "first2": "",
+    "date": "",
+    "title": "",
+    "url": "",
+    "journal": "",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "",
+    "access-date": ""
+  },
+  "news": {
+    "last": "", 
+    "first": "", 
+    "date": "", 
+    "title": "", 
+    "url": "", 
+    "work": "", 
+    "location": "", 
+    "access-date": ""
+  },
+  "report": {
+    "author": "",
+    "author-link": "",
+    "authors": "",
+    "date": "",
+    "title": "", 
+    "url": "", 
+    "publisher": "", 
+    "format": "",
+    "others": "",
+    "edition": "",
+    "location": "",
+    "chapter": "",
+    "section": "",
+    "page": "",
+    "pages": "",
+    "docket": "",
+    "access-date": "", 
+    "quote": ""
+  },
+  "speech": {
+    "title": "",
+    "first": "",
+    "last": "",
+    "author-link": "",
+    "event": "",
+    "location": "",
+    "date": "",
+    "url": "",
+    "access-date": ""
+  },
+  "web": {
+    "url": "",
+    "title": "",
+    "last": "",
+    "first": "",
+    "date": "",
+    "website": "",
+    "publisher": "",
+    "access-date": "",
+    "quote": ""
   }
 }
