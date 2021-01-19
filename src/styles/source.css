@@ -1,0 +1,16 @@
+.source-card {
+  height: 85%;
+  width: 85%;
+  border-radius: 15px 50px;
+}
+
+.instruction {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+.options {
+  font-size: 18px;
+  margin-top: 10%;
+}

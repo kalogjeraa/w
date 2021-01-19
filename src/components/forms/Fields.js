@@ -16,6 +16,7 @@ const Fields = props => {
               className="form-group"
               key={index}
             >
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
               <input
                 type="text"
                 className="form-control"
