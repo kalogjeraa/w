@@ -3,7 +3,7 @@ import React from 'react';
 import Radio from './Radio';
 import { SOURCES } from '../../constants/source';
 
-const Source = (props) => {
+const Source = props => {
   const {
     column,
     handleSourceChange,
