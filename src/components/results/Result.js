@@ -37,11 +37,15 @@ const Result = (props) => {
           {copySuccess}
         </div>
       </div>
-      <button
-        onClick={()=> copyToClipboard(citation)}
-      >
-        Copy
-      </button>
+      <div>
+        <button
+          type="button"
+          className="btn btn-secondary btn-lg badge w-75 copy-button-margin"
+          onClick={()=> copyToClipboard(citation)}
+        >
+          Copy
+        </button>
+      </div>
     </div>
   )
 };
