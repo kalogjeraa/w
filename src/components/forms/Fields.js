@@ -36,13 +36,12 @@ const Fields = props => {
             Object.keys(fields).map((field, index) => {
               return (
                 <div
-                  className=""
+                  className="inline-label"
                   key={index}
                 >
+                  <span className="inline-label">{field}: </span>
                   <input
                     type="text"
-                    className=""
-                    placeholder={`${field}`}
                     onChange={event => handleTyping(index, event.target.value)}
                   />
                 </div>

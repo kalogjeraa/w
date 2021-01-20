@@ -5,7 +5,7 @@ import '../../styles/result.css';
 
 const Result = (props) => {
   const [citation, setCitation] = useState('');
-  const [copySuccess, setCopySuccess] = useState('');
+  // const [copySuccess, setCopySuccess] = useState('');
   const textAreaRef = useRef(null);
 
   const {
@@ -19,22 +19,21 @@ const Result = (props) => {
     setCitation(formatted);
   }, [fields, type]);
 
-  const copyToClipboard = (value) => {
+  const copyToClipboard = value => {
     navigator.clipboard.writeText(value)
-    setCopySuccess('Copied!');
+    // setCopySuccess('Copied!');
   };
 
   return (
     <div className={column}>
-      <div className="paper">
-        <div className="paper-content">
+      <div className="paper-result">
+        <div className="paper-result-content">
           <textarea
             autofocus
             readOnly
             ref={textAreaRef}
             value={citation}
           />        
-          {copySuccess}
         </div>
       </div>
       <div>

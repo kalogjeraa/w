@@ -13,8 +13,8 @@ const KEYS_JSON = Object.keys(FULL_JSON);
 const VALUES_JSON = Object.values(FULL_JSON);
 
 const Home = () => {
-  let [sourceIndex, setSourceIndex] = useState(0);
-  let [fields, setFields] = useState(VALUES_JSON[sourceIndex]);
+  const [sourceIndex, setSourceIndex] = useState(0);
+  const [fields, setFields] = useState(VALUES_JSON[sourceIndex]);
 
   useEffect(() => {
     setFields(VALUES_JSON[sourceIndex]);
@@ -30,10 +30,10 @@ const Home = () => {
   };
 
   const handleTyping = (index, input) => {
-    const tupleArray = Object.entries(fields); // array of [["litigation", ""], ["title", ""]]
-    const tuple = tupleArray[index]; // ["litigation", ""]
-    tuple.splice(1, 1, input); // replace second index with new input
-    tupleArray.splice(index, 1, tuple); // replace old tuple in tupleArray with new tuple
+    const tupleArray = Object.entries(fields);
+    const tuple = tupleArray[index];
+    tuple.splice(1, 1, input);
+    tupleArray.splice(index, 1, tuple);
 
     const obj = Object.assign(
       ...tupleArray.map(
