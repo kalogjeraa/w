@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Radio = (props) => {
+const Radio = props => {
   const {
     handleSourceChange,
     index,
@@ -8,7 +8,7 @@ const Radio = (props) => {
   } = props;
 
   return (
-    <div>
+    <div className="">
       <input
         className="form-check-input"
         type="radio"
@@ -19,7 +19,7 @@ const Radio = (props) => {
       />
       <label
         className="form-check-label"
-        htmlFor="web"
+        htmlFor="source"
       >
         {text}
       </label>

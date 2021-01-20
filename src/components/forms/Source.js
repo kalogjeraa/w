@@ -32,12 +32,16 @@ const Source = props => {
 
   return (
     <div className={`${column} d-flex align-items-center justify-content-center`}>
-      <div className="card d-flex align-items-center source-card">
+      {/*<div className="card d-flex align-items-center source-card">
         <div className="instruction">Select an option.</div>
         <div className="options">
           {SOURCES && mapSources(SOURCES)}
         </div>
-      </div>  
+      </div>*/}
+      <div className="options">
+        <div>Select an option.</div>
+        {SOURCES && mapSources(SOURCES)}
+      </div>
     </div>
   )
 }

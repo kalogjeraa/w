@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../styles/fields.css';
+
 const Fields = props => {
   const {
     column,
@@ -9,24 +11,46 @@ const Fields = props => {
 
   return (
     <div className={column}>
-      {
-        Object.keys(fields).map((field, index) => {
-          return (
-            <div
-              className="form-group"
-              key={index}
-            >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input
-                type="text"
-                className="form-control"
-                placeholder={`${field}`}
-                onChange={event => handleTyping(index, event.target.value)}
-              />
-            </div>
-          );
-        })
-      }
+      {/*<div className="fields-container">
+        {
+          Object.keys(fields).map((field, index) => {
+            return (
+              <div
+                className="form-group"
+                key={index}
+              >
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={`${field}`}
+                  onChange={event => handleTyping(index, event.target.value)}
+                />
+              </div>
+            );
+          })
+        }
+      </div>*/}
+      <div className="paper">
+        <div className="paper-content">
+          {
+            Object.keys(fields).map((field, index) => {
+              return (
+                <div
+                  className=""
+                  key={index}
+                >
+                  <input
+                    type="text"
+                    className=""
+                    placeholder={`${field}`}
+                    onChange={event => handleTyping(index, event.target.value)}
+                  />
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
     </div>
   );
 };
